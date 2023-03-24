@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+<main>
+    <div class="contain">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <img style="height: 200px; object-fit: cover;" src="{{ card.image.url }}" class="card-img-top"
+                        alt="Chicago Skyscrapers" />
+                    <div class="card-body">
+                        <small class="card-muted">{{ card.category.title }}</small>
+                        <h5 class="card-title">{{ card.title }}</h5>
+                        <p class="card-text">{{ card.text }}</p>
+                    </div>
+                    <div class="card-body">
+                        <span class="card-link">{{ card.author }}</span> - 
+                        <span class="card-link">{{ card.date_now }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock body %}
+    

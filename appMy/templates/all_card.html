@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block body %}
+<main>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-9 row my-3">
+                <h2>CARDS</h2>
+                {% for i in cards %}
+                <div class="col-4 my-2">
+                    <div class="card">
+                        <img style="height: 200px; object-fit: cover;" src="{{ i.image.url }}" class="card-img-top"
+                            alt="Chicago Skyscrapers" />
+                        <div class="card-body">
+                            <h5 class="card-title">{{ i.title }}</h5>
+                            <p class="card-text">{{ i.text|truncatechars:"50" }}</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="/detail/{{ i.id }}/" class="card-link">Card View</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+            <!-- Sidenav -->
+            {% include 'part/_sidenav.html' %}
+
+        </div>
+    </div>
+
+</main>
+{% endblock body %}
+    
