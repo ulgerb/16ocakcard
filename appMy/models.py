@@ -15,6 +15,16 @@ class Card(models.Model):
     image = models.FileField(("Resim"), upload_to="", max_length=100)
     date_now = models.DateTimeField(("Tarih - Saat"), auto_now_add=True)
     author = models.CharField(("Yazar"), max_length=50)
+    brand = models.CharField(("Marka"), max_length=50, null=True)
+
+    def __str__(self):
+        return self.title
+
+class ContactModel(models.Model):
+    title = models.CharField(("Konu"), max_length=50)
+    text = models.TextField(("Mesaj"), max_length=2000)
+    email = models.EmailField(("Email"), max_length=254)
+    name = models.CharField(("İsim"), max_length=50)
 
     def __str__(self):
         return self.title

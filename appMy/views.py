@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from django.db.models import Q
 
 # Create your views here.
 
@@ -25,7 +26,7 @@ def allCard(request,cid):
     if cid == "all":
         cards = Card.objects.all()
     else:
-        cards = Card.objects.filter(category__title=cid) 
+        cards = Card.objects.filter(Q(category__title=cid) | Q(brand=cid)) 
     
     category = Category.objects.all()
     
@@ -35,3 +36,20 @@ def allCard(request,cid):
         "cid": cid,
     }
     return render(request,'all_card.html',context)
+
+
+def Contact(request):
+    # normalde sayfa ve fonksiyon GET ile çalışır 
+    if request.method == "POST":
+        
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        subject = request.POST.get("subject")
+        mess = request.POST.get("message")
+
+        contact = ContactModel(title=subject, text=mess, email=email, name=name)
+        contact.save()
+    
+
+    context={}
+    return render(request,'contact.html',context)

@@ -24,5 +24,6 @@ urlpatterns = [
     path('', index),
     path('detail/<did>/', Detail),
     path('cetegory/<cid>/', allCard),
+    path('contact/', Contact),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
