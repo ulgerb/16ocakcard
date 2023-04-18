@@ -12,7 +12,19 @@
         </a>
         {% endfor %}
 
-        <a href="/cetegory/Nike/"
+        
+        {% for i in brands %}
+            
+        <a href="/cetegory/{{ i.brand }}/"
+            class="list-group-item list-group-item-action px-3 border-0 ripple"
+            aria-current="true">
+            {{ i.brand }}
+        </a>
+        {% endfor %}
+            
+            
+        
+        <!-- <a href="/cetegory/Nike/"
             class="list-group-item list-group-item-action px-3 border-0 ripple"
             aria-current="true">
             Nike
@@ -26,7 +38,7 @@
             class="list-group-item list-group-item-action px-3 border-0 ripple"
             aria-current="true">
             Adidas
-        </a>
+        </a> -->
 
 
     </div>

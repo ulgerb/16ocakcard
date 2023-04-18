@@ -128,7 +128,8 @@
                             <p class="card-text">{{ i.text|truncatechars:"50" }}</p>
                         </div>
                         <div class="card-body">
-                            <a href="/detail/{{ i.id }}/" class="card-link">Card View</a>
+                            <!-- <a href="/detail/{{ i.id }}/" class="card-link">Card View</a> -->
+                            <a href="{% url 'Detail' i.id %}" class="card-link">Card View</a>
                             <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>

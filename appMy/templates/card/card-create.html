@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body %}
+
+<main>
+    <div class="container" >
+        <div class="row justify-content-center">
+            <div class="col-10" >
+                <form method="POST" enctype="multipart/form-data" style="margin: 40px 0; padding: 40px; box-shadow: 0px 2px 4px #00000060;">
+                    {% csrf_token %}
+                    <h2>Card Create</h2><hr>
+                    <div class="mt-3">
+                        <label for="">Kategori</label>
+                        <select name="category" class="form-control">
+                            
+                            {% for i in categorys %}
+                            <option value="{{ i.id }}">{{ i.title }}</option>
+                            {% endfor %}
+                                
+                        </select>
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Başlık</label>
+                        <input class="form-control" type="text" name="title" id="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="">İçerik</label>
+                        <textarea name="text" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Yazar</label>
+                        <input class="form-control" type="text" name="author" id="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Marka</label>
+                        <input class="form-control" type="text" name="brand" id="">
+                    </div>
+                    <div class="mt-3">
+                        <label for="">Resim</label>
+                        <input class="form-control" type="file" name="image" id="">
+                    </div>
+                    <div class="mt-3">
+                        <input type="checkbox" name="active" checked value="True" id="show">
+                        <label for="show">Göster</label>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success w-50">Kart Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+    
+{% endblock body %}
+    

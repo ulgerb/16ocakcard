@@ -21,9 +21,16 @@ from appMy.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index),
-    path('detail/<did>/', Detail),
-    path('cetegory/<cid>/', allCard),
-    path('contact/', Contact),
+    path('', index, name='index'),
+    path('detail/<did>/', Detail, name='Detail'),
+    path('cetegory/', allCard, name='allCard'),
+    path('cetegory/<cid>/', allCard, name='allCard'),
+    path('contact/', Contact, name='Contact'),
+    # CARD 
+    path('cardCreate/', cardCreate, name='cardCreate'),
+    # USER
+    path('login/', loginUser, name='loginUser'),
+    path('register/', registerUser, name='registerUser'),
+    path('logout/', logoutUser, name='logoutUser'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
